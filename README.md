@@ -1,17 +1,19 @@
 # systat
- 
-# Build the image
-´´´
-$ podman build -t systat .
-´´´
-´´´
-$ podman images
 
+This repository is made to keep the ```Containerfile``` for systat pod image.
+
+The pod image build is available in ```quay.io/midu/systat:latest```.
+
+# Build the image
+
+```
+$ podman build -t systat .
+$ podman images
 REPOSITORY                TAG         IMAGE ID      CREATED         SIZE
 localhost/systat          latest      26d361d9ec72  17 minutes ago  597 MB	
 docker.io/library/centos  7           eeb6ee3f44bd  10 months ago   212 MB
-´´´
+```
 # Run the image
-'''
+```
 podman run -d --rm -it --name systat --pid=host --ipc=host quay.io/midu/systat:latest
-'''
+```
