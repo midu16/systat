@@ -6,6 +6,13 @@ RUN yum upgrade -y && yum upgrade -y && yum install epel-release -y && yum insta
 COPY ptp.py /ptp.py
 # trim a little 
 RUN yum autoremove -y
+
+# Building Valgrind
+WORKDIR /
+RUN curl -O -L https://sourceware.org/pub/valgrind/valgrind-3.20.0.tar.bz2 && bzip2 -d valgrind-3.20.0.tar.bz2  && tar -xf valgrind-3.20.0.tar
+WORKDIR /valgrind-3.20.0
+RUN ./configure && make && make install
+
 # creating the admin user
 RUN useradd -ms /bin/bash admin
 # adding the admin user to 'sudo' group
