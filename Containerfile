@@ -1,7 +1,7 @@
 FROM docker.io/library/centos:7
 MAINTAINER midu@redhat.com
 # upgrading the image and installing packages to the container
-RUN yum upgrade -y && yum upgrade -y && yum install epel-release -y && yum install sysstat -y && yum install tcpdump tcptraceroute wireshark -y && yum install python3 -y && yum install smartmontools -y && yum install bzip2 -y
+RUN yum upgrade -y && yum upgrade -y && yum install epel-release -y && yum install sysstat -y && yum install tcpdump tcptraceroute wireshark -y && yum install python3 -y && yum install smartmontools -y && yum install bzip2 -y && yum install gcc -y
 # adding the ptp.py script in the image
 COPY ptp.py /ptp.py
 # trim a little 
